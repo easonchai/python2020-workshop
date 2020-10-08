@@ -4,3 +4,10 @@
 
 pycryptodomex
 hashlib (already installed)
+
+## File Structure
+
+main -> entry point
+setup -> creates config.ini
+encryption -> handles encryption/decryption
+scraper -> handles scraping
