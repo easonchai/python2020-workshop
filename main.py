@@ -12,6 +12,7 @@ def load_file():
         file = open("config.ini", "r")
         username = file.readline()
         data = file.readline()
+        file.close()
         return True
     except:
         return False
@@ -29,6 +30,11 @@ def prompt_password():
 
     return decrypted_data
 
+def retrieve_subjects():
+    file = open("subjects.txt", "r")
+    subject_list = file.readline().split(',')
+    print(subject_list)
+
 def main():
     global username
     if not path.exists("config.ini"):
@@ -41,6 +47,9 @@ def main():
             # input("Auto login complete! Press enter to quit")
         else:
             print("Something went wrong... try deleting 'config.ini' and setup again!")
+
+def test():
+    retrieve_subjects()
         
 if __name__ == "__main__":
-    main()
+    test()

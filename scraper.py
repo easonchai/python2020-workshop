@@ -33,3 +33,6 @@ def run_scraper(username, password):
     # Click the Sign In button
     time.sleep(1)
     driver.find_element_by_id("submitButton").click()
+
+
+
