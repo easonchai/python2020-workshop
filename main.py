@@ -38,6 +38,7 @@ def main():
         if load_file():
             password = prompt_password()
             scraper.run_scraper(username, password)
+            # input("Auto login complete! Press enter to quit")
         else:
             print("Something went wrong... try deleting 'config.ini' and setup again!")
         
