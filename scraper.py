@@ -70,5 +70,10 @@ def open_subjects(subject_list):
         # Remember! Tab 0 is the Activity Stream!
         driver.switch_to.window(driver.window_handles[tab+1])
         WebDriverWait(driver, 10).until(lambda x: x.find_element_by_xpath('//span[contains(text(), "' + subject_list[tab] + '")]')).click()
-        
+
+def warning():
+    print("You shouldn't be running this file directly! Please run main.py!")     
+    
+if __name__ == "__main__":
+    warning()
         

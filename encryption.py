@@ -62,3 +62,9 @@ def decrypt(enc_dict, password):
     decrypted = cipher.decrypt_and_verify(cipher_text, tag)
 
     return bytes.decode(decrypted)
+
+def warning():
+    print("You shouldn't be running this file directly! Please run main.py!")     
+    
+if __name__ == "__main__":
+    warning()

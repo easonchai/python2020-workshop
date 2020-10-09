@@ -39,4 +39,10 @@ def masterpw_prompt():
 def initialize():
     initial_prompt()
     masterpw_prompt()
+
+def warning():
+    print("You shouldn't be running this file directly! Please run main.py!")     
+    
+if __name__ == "__main__":
+    warning()
     

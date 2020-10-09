@@ -47,9 +47,6 @@ def main():
             scraper.open_subjects(retrieve_subjects())
         else:
             print("Something went wrong... try deleting 'config.ini' and setup again!")
-
-def test():
-    retrieve_subjects()
         
 if __name__ == "__main__":
     main()
