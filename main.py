@@ -1,4 +1,4 @@
-import setup, encryption
+import setup, encryption, scraper
 from os import path
 import json
 
@@ -18,22 +18,29 @@ def load_file():
 
 def prompt_password():
     success = False
+    decrypted_data = ""
     while not success:
         key = input("Enter master password: ") 
         try:
             decrypted_data = encryption.decrypt(json.loads(data), key)
-            print(decrypted_data)
             success = True
         except:
             print("\nWrong password!\n")
 
+    return decrypted_data
+
 def main():
+    global username
     if not path.exists("config.ini"):
         setup.initialize()
     else:
         print("Configuration File Found!\n")
-        load_file()
-        prompt_password()
+        if load_file():
+            password = prompt_password()
+            scraper.run_scraper(username, password)
+            # input("Auto login complete! Press enter to quit")
+        else:
+            print("Something went wrong... try deleting 'config.ini' and setup again!")
         
 if __name__ == "__main__":
     main()
