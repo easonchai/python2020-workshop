@@ -62,23 +62,3 @@ def decrypt(enc_dict, password):
     decrypted = cipher.decrypt_and_verify(cipher_text, tag)
 
     return bytes.decode(decrypted)
-
-
-# def main():
-#     password = input("Password: ")
-
-#     # First let us encrypt secret message
-#     encrypted = encrypt("The secretest message here", password)
-#     print(encrypted)
-
-#     key = input("Password to decrypt: ")
-
-#     # Let us decrypt using our original password
-#     try:
-#         decrypted = decrypt(encrypted, key)
-#         print(bytes.decode(decrypted))
-#     except:
-#         print("Wrong password!")
-    
-
-# main()
