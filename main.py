@@ -1,4 +1,4 @@
-import setup, encryption, scraper, time
+import setup, encryption, scraper
 from os import path
 import json
 
@@ -43,7 +43,7 @@ def main():
         if load_file():
             password = prompt_password()
             scraper.run_scraper(username, password)
-            # scraper.get_announcements()
+            scraper.get_announcements()
             scraper.open_subjects(retrieve_subjects())
         else:
             print("Something went wrong... try deleting 'config.ini' and setup again!")

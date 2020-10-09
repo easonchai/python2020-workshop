@@ -39,12 +39,18 @@ def run_scraper(username, password):
 def get_announcements():
     todays_info = WebDriverWait(driver, 10).until(lambda x: x.find_element_by_class_name("js-todayStreamEntries"))
     announcement_feed = todays_info.find_element_by_tag_name("ul")
-    print(announcement_feed)
+    useful_data = announcement_feed.find_elements_by_tag_name("li")
+    
 
-    announcement_file = open('announcements.txt', 'w')
+    announcement_file = open('announcements.txt', 'w', encoding='utf-8')
     announcement_file.write('🔔 Announcements for the day! 🔊\n')
     today = date.today().strftime("%B %d, %Y")
     announcement_file.write(today + "\n\n")
+
+    for announcement in useful_data:
+        announcement_file.write('✉️ ' + announcement.find_element_by_tag_name("a").text + '\n')
+        announcement_file.write('👉 ' + announcement.find_element_by_class_name("name").text + '\n\n')
+
     announcement_file.close()
 
 
