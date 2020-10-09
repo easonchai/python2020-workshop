@@ -37,19 +37,26 @@ def run_scraper(username, password):
     WebDriverWait(driver, 10).until(lambda x: x.find_element_by_id("submitButton")).click()
 
 def get_announcements():
-    todays_info = WebDriverWait(driver, 10).until(lambda x: x.find_element_by_class_name("js-todayStreamEntries"))
-    announcement_feed = todays_info.find_element_by_tag_name("ul")
-    useful_data = announcement_feed.find_elements_by_tag_name("li")
-    
-
-    announcement_file = open('announcements.txt', 'w', encoding='utf-8')
-    announcement_file.write('🔔 Announcements for the day! 🔊\n')
     today = date.today().strftime("%B %d, %Y")
-    announcement_file.write(today + "\n\n")
 
-    for announcement in useful_data:
-        announcement_file.write('✉️ ' + announcement.find_element_by_tag_name("a").text + '\n')
-        announcement_file.write('👉 ' + announcement.find_element_by_class_name("name").text + '\n\n')
+    try:
+        # Gets the annoucement data
+        todays_info = WebDriverWait(driver, 5).until(lambda x: x.find_element_by_class_name("js-todayStreamEntries"))
+        announcement_feed = todays_info.find_element_by_tag_name("ul")
+        useful_data = announcement_feed.find_elements_by_tag_name("li")
+        
+        # Open a file to store announcements
+        announcement_file = open('announcements.txt', 'w', encoding='utf-8')
+        announcement_file.write('🔔 Announcements for the day! 🔊\n')
+        announcement_file.write(today + "\n\n")
+
+        for announcement in useful_data:
+            announcement_file.write('✉️ ' + announcement.find_element_by_tag_name("a").text + '\n') # From who
+            announcement_file.write('👉 ' + announcement.find_element_by_class_name("name").text + '\n\n') # Main title of annoucement
+    except:
+        announcement_file = open('announcements.txt', 'w', encoding='utf-8')
+        announcement_file.write('🔔 No announcements for the day! 🔊\n')
+        announcement_file.write(today + "\n\n")
 
     announcement_file.close()
 
