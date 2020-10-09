@@ -13,13 +13,6 @@ The idea is to automate the login process & automatically enter into selected su
 - selenium
 - webdriver_manager
 
-## File Structure
-
-main -> entry point <br />
-setup -> creates config.ini <br />
-encryption -> handles encryption/decryption <br />
-scraper -> handles scraping <br />
-
 ## Getting Started
 
 First, clone the repo to your desired directory & install the Python modules required to run the script
@@ -57,3 +50,10 @@ Last but not least, modify the subjects.txt to fit your needs, and run main.py
 ```
 
 This will initially create a config.ini file. Then, run main.py again to start the actual program
+
+## File Structure
+
+main -> entry point <br />
+setup -> creates config.ini <br />
+encryption -> handles encryption/decryption <br />
+scraper -> handles scraping <br />

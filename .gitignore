@@ -1,7 +1,11 @@
+# env file
 env
 
+# caches
 __pycache__
 
+# configs
 *.ini
 *.log
 announcements.txt
+*.exe
