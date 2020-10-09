@@ -52,10 +52,9 @@ def open_subjects(subject_list):
     # The first step is to see how many subjects we have. Once we know that, we open 1 extra tab for each subject, leaving the first tab
     # for the announcements
 
-    actions = ActionChains(driver)
-
     for subject in subject_list:
         time.sleep(3)
+        actions = ActionChains(driver)
         courses_button = driver.find_element_by_xpath('//span[text()="Courses"]')
         actions.key_down(Keys.CONTROL).click(courses_button).key_up(Keys.CONTROL).perform()
         driver.switch_to.window(driver.window_handles[-1])
