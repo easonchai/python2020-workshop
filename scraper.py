@@ -34,5 +34,9 @@ def run_scraper(username, password):
     time.sleep(1)
     driver.find_element_by_id("submitButton").click()
 
+def get_announcements():
+    print("Announcements for the day!")
 
-
+def open_subjects(subject_list):
+    for subject in subject_list:
+        course_url = "https://elearn.sunway.edu.my/ultra/course"
