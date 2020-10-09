@@ -9,10 +9,11 @@ def run_scraper(username, password):
     global driver
 
     # Install Driver Automatically
-    driver =webdriver.Chrome(ChromeDriverManager().install())
+    driver = webdriver.Chrome(ChromeDriverManager().install())
+    driver.maximize_window()
 
     # Stores the elearn URL
-    search_url="https://elearn.sunway.edu.my/" 
+    search_url = "https://elearn.sunway.edu.my/" 
 
     # Opens up Chrome and connects to the search_url
     driver.get(search_url)
