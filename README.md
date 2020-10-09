@@ -15,16 +15,45 @@ The idea is to automate the login process & automatically enter into selected su
 
 ## File Structure
 
-main -> entry point
-setup -> creates config.ini
-encryption -> handles encryption/decryption
-scraper -> handles scraping
+main -> entry point <br />
+setup -> creates config.ini <br />
+encryption -> handles encryption/decryption <br />
+scraper -> handles scraping <br />
 
 ## Getting Started
 
-First, clone the repo to your desired directory & install the Python modules required to follow the workshop
+First, clone the repo to your desired directory & install the Python modules required to run the script
 
-```
+```bash
 git clone https://github.com/easonchai/python2020-workshop.git
-pip install selenium webdriver_manager pycryptodomex
 ```
+
+OPTIONAL: Then, create a venv (virtual env). This is to avoid your python modules from interfering with other projects
+
+```bash
+python -m venv .
+```
+
+Install all required modules
+<br />
+If you used a venv, make sure you activate it first.
+
+```bash
+.\env\Scripts\activate
+
+(env) <-- you should see this next to your terminal!
+```
+
+IMPORTANT: Finally, install the modules
+
+```bash
+pip install -r requirements.txt
+```
+
+Last but not least, modify the subjects.txt to fit your needs, and run main.py
+
+```Powershell
+.\main.py
+```
+
+This will initially create a config.ini file. Then, run main.py again to start the actual program
