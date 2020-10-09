@@ -41,9 +41,19 @@ If you used a venv, make sure you activate it first.
 ```bash
 .\env\Scripts\activate
 
-(env) <-- you should see this!
+(env) <-- you should see this next to your terminal!
 ```
 
+IMPORTANT: Finally, install the modules
+
 ```bash
-pip install selenium webdriver_manager pycryptodomex
+pip install -r requirements.txt
 ```
+
+Last but not least, modify the subjects.txt to fit your needs, and run main.py
+
+```Powershell
+.\main.py
+```
+
+This will initially create a config.ini file. Then, run main.py again to start the actual program
