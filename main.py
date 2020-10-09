@@ -1,4 +1,4 @@
-import setup, encryption, scraper
+import setup, encryption, scraper, time
 from os import path
 import json
 
@@ -32,8 +32,7 @@ def prompt_password():
 
 def retrieve_subjects():
     file = open("subjects.txt", "r")
-    subject_list = file.readline().split(',')
-    print(subject_list)
+    return file.readline().split(',')
 
 def main():
     global username
@@ -44,7 +43,9 @@ def main():
         if load_file():
             password = prompt_password()
             scraper.run_scraper(username, password)
-            # input("Auto login complete! Press enter to quit")
+            # scraper.get_announcements()
+            time.sleep(2)
+            scraper.open_subjects(retrieve_subjects())
         else:
             print("Something went wrong... try deleting 'config.ini' and setup again!")
 
@@ -52,4 +53,4 @@ def test():
     retrieve_subjects()
         
 if __name__ == "__main__":
-    test()
+    main()
