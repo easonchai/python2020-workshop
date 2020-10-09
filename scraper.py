@@ -21,8 +21,11 @@ def run_scraper(username, password):
     driver.find_element_by_xpath("//button[text()='Sunway ID']").click()
 
     # Uses the previously loaded username & password and enters it into the fields
+    time.sleep(1)
     driver.find_element_by_id("userNameInput").send_keys(username)
+    time.sleep(1)
     driver.find_element_by_id("passwordArea").send_keys(password)
 
     # Click the Sign In button
+    time.sleep(1)
     driver.find_element_by_id("submitButton").click()
