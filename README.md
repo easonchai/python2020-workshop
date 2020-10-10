@@ -19,12 +19,14 @@ First, clone the repo to your desired directory & install the Python modules req
 
 ```bash
 git clone https://github.com/easonchai/python2020-workshop.git
+cd python2020-workshop
+
 ```
 
 OPTIONAL: Then, create a venv (virtual env). This is to avoid your python modules from interfering with other projects
 
 ```bash
-python -m venv .
+python -m venv .\env
 ```
 
 Install all required modules
