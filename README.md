@@ -27,6 +27,7 @@ OPTIONAL: Then, create a venv (virtual env). This is to avoid your python module
 
 ```bash
 python -m venv .\env
+
 ```
 
 Install all required modules
