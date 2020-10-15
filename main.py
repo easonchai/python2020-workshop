@@ -43,8 +43,9 @@ def main():
         if load_file():
             password = prompt_password()
             scraper.run_scraper(username, password)
-            scraper.get_announcements()
-            scraper.open_subjects(retrieve_subjects())
+            # scraper.get_announcements()
+            # scraper.open_subjects(retrieve_subjects())
+            scraper.scrape_links()
         else:
             print("Something went wrong... try deleting 'config.ini' and setup again!")
         
