@@ -1,4 +1,4 @@
-import time
+import time, re
 from datetime import date
 from selenium import webdriver 
 from webdriver_manager.chrome import ChromeDriverManager
@@ -77,6 +77,52 @@ def open_subjects(subject_list):
         # Remember! Tab 0 is the Activity Stream!
         driver.switch_to.window(driver.window_handles[tab+1])
         WebDriverWait(driver, 10).until(lambda x: x.find_element_by_xpath('//span[contains(text(), "' + subject_list[tab] + '")]')).click()
+
+def scrape_links():
+    potential_links = []
+    links = []
+
+    try:
+        # Gets the annoucement data
+        time.sleep(5)
+        scrolls = 5
+        while True:
+            scrolls -= 1
+            driver.find_element_by_tag_name('body').send_keys(Keys.SPACE) 
+            print("scrolled")
+            time.sleep(1)
+            if scrolls < 0:
+                break
+
+        WebDriverWait(driver, 10).until(lambda x: x.find_element_by_partial_link_text('WEEK')).click()
+        time.sleep(3)
+        iframe = driver.find_element_by_xpath("//iframe[contains(@class,'classic-learn-iframe')]")
+        driver.switch_to.frame(iframe)
+        time.sleep(3)
+        potential_links = WebDriverWait(driver, 20).until(lambda x: x.find_elements_by_tag_name('p'))
+
+        for strings in potential_links:
+            try:
+                actual_text = str(strings.text)
+                match_object = re.search("http", actual_text)
+                tuple_span = match_object.span()  
+                start = tuple_span[0]
+                links.append(actual_text[start:])
+            except:
+                print("No links found")
+        
+        for tab in links:
+            actions = ActionChains(driver)
+            courses_button = WebDriverWait(driver, 10).until(lambda x: x.find_element_by_xpath('//span[text()="Home Page"]'))
+            actions.key_down(Keys.CONTROL).click(courses_button).key_up(Keys.CONTROL).perform()
+            driver.switch_to.window(driver.window_handles[-1])
+        
+        for link in range(len(links)):
+            driver.switch_to.window(driver.window_handles[link+1])
+            driver.get(links[link])
+
+    except:
+        print("No links found for Programming Principles")
 
 def warning():
     print("You shouldn't be running this file directly! Please run main.py!")     
