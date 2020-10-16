@@ -46,17 +46,4 @@ IMPORTANT: Finally, install the modules
 pip install -r requirements.txt
 ```
 
-Last but not least, modify the subjects.txt to fit your needs, and run main.py
-
-```Powershell
-.\main.py
-```
-
-This will initially create a config.ini file. Then, run main.py again to start the actual program
-
-## File Structure
-
-main -> entry point <br />
-setup -> creates config.ini <br />
-encryption -> handles encryption/decryption <br />
-scraper -> handles scraping <br />
+Now we can start coding our Python Web Scraper! If you would like to view the full example files, checkout the `full-example` branch!
