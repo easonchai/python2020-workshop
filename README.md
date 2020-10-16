@@ -43,11 +43,14 @@ Now we can start coding our Python Web Scraper! If you would like to view the fu
 ## File Structure
 
 Now, we can definitely program everything in one file, but that will get really messy and complicated. The best way is to split up groups of functions into separate files. For example, the encryption should be in its own Python file, while the scraper should be in another. That makes sense right?<br /><br />
-I've structured the project to use four(4) different files:
+I've structured the project to use five(5) different files:
 
-| File          | Function                                                 |
-| ------------- | -------------------------------------------------------- |
-| main.py       | Main entry point (we will only interact with this file!) |
-| encryption.py | Handle password encryption/decryption                    |
-| scraper.py    | Handle eLearn scraping using selenium                    |
-| setup.py      | Setup the config.ini                                     |
+| File          | Function                                                                                          |
+| ------------- | ------------------------------------------------------------------------------------------------- |
+| main.py       | Main entry point (we will only interact with this file!)                                          |
+| encryption.py | Handle password encryption/decryption                                                             |
+| scraper.py    | Handle eLearn scraping using selenium                                                             |
+| setup.py      | Setup the config.ini                                                                              |
+| boot.ps1      | This is not a Python file, but can be used with Powershell as a script to run on Windows Startup! |
+
+Feel free to start fresh if you do not want to use these files!

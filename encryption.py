@@ -6,22 +6,6 @@ from Cryptodome.Cipher import AES
 import os
 from Cryptodome.Random import get_random_bytes
 
-
-# pad with spaces at the end of the text
-# beacuse AES needs 16 byte blocks
-def pad(s):
-    block_size = 16
-    remainder = len(s) % block_size
-    padding_needed = block_size - remainder
-    return s + padding_needed * ' '
-
-# remove the extra spaces at the end
-
-
-def unpad(s):
-    return s.rstrip()
-
-
 def encrypt(plain_text, password):
     # generate a random salt
     salt = get_random_bytes(AES.block_size)
